@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Funpay — Сделки</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    *{box-sizing:border-box}
+
+    :root{
+      --blue:#1687ff;
+      --blue-dark:#0878ef;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e8edf3;
+      --soft:#f6f9fc;
+    }
+
+    html,body{
+      margin:0;
+      min-height:100%;
+      background:#fff !important;
+    }
+
+    body{
+      padding:18px 16px 28px;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--text) !important;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    button{
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:560px;
+      margin:0 auto;
+    }
+
+    .top{
+      text-align:center;
+      padding:12px 8px 22px;
+    }
+
+    .logo{
+      width:64px;
+      height:64px;
+      margin:0 auto 14px;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:0 8px 24px rgba(20,55,90,.08);
+      font-size:30px;
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:-.6px;
+      font-weight:800;
+    }
+
+    .subtitle{
+      margin:9px auto 0;
+      max-width:410px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.45;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(20,55,90,.07);
+    }
+
+    .info{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:9px;
+      margin-bottom:18px;
+    }
+
+    .info-item{
+      min-width:0;
+      background:var(--soft);
+      border-radius:15px;
+      padding:12px 8px;
+      text-align:center;
+    }
+
+    .info-icon{
+      font-size:20px;
+      margin-bottom:5px;
+    }
+
+    .info-title{
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .section-title{
+      margin:4px 2px 12px;
+      font-size:17px;
+      font-weight:800;
+    }
+
+    .grid{
+      display:grid;
+      gap:10px;
+    }
+
+    button{
+      width:100%;
+      border:0;
+      border-radius:17px;
+      padding:16px 17px;
+      min-height:56px;
+      font-size:16px;
+      font-weight:750;
+      cursor:pointer;
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+      box-shadow:0 7px 18px rgba(22,135,255,.20);
+      transition:transform .12s ease,opacity .12s ease;
+    }
+
+    button:active{
+      transform:scale(.985);
+      opacity:.88;
+    }
+
+    button.secondary{
+      color:var(--text);
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+
+    .button-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-align:left;
+    }
+
+    .button-icon{
+      width:38px;
+      height:38px;
+      flex:0 0 38px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      background:rgba(255,255,255,.18);
+      font-size:20px;
+    }
+
+    button.secondary .button-icon{
+      background:var(--soft);
+    }
+
+    .button-text{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .button-title{
+      font-size:16px;
+      font-weight:800;
+    }
+
+    .button-desc{
+      font-size:12px;
+      font-weight:500;
+      opacity:.82;
+    }
+
+    .secondary .button-desc{
+      color:var(--muted);
+      opacity:1;
+    }
+
+    .security{
+      margin-top:14px;
+      padding:13px 14px;
+      border-radius:15px;
+      background:#f8fbff;
+      border:1px solid #e6f1ff;
+      color:#536274;
+      font-size:12px;
+      line-height:1.45;
+      text-align:center;
+    }
+
+    .footer{
+      padding:17px 8px 0;
+      text-align:center;
+      color:#9aa3af;
+      font-size:12px;
+    }
+
+    @media (max-width:380px){
+      body{padding-left:12px;padding-right:12px}
+      .info-title{font-size:11px}
+      h1{font-size:25px}
+      .card{padding:15px}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div class="logo">💎</div>
+      <h1>Funpay</h1>
+      <div class="subtitle">Безопасные сделки с подарками и цифровыми активами</div>
+    </header>
+
+    <section class="card">
+      <div class="info">
+        <div class="info-item">
+          <div class="info-icon">⚡</div>
+          <div class="info-title">Быстро</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🛡️</div>
+          <div class="info-title">Безопасно</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">💬</div>
+          <div class="info-title">Поддержка</div>
+        </div>
+      </div>
+
+      <div class="section-title">Что хотите сделать?</div>
+
+      <div class="grid">
+        <button onclick="send('create')">
+          <span class="button-row">
+            <span class="button-icon">💎</span>
+            <span class="button-text">
+              <span class="button-title">Создать сделку</span>
+              <span class="button-desc">Оформить новую сделку</span>
+            </span>
+          </span>
+        </button>
+
+        <button onclick="send('join')">
+          <span class="button-row">
+            <span class="button-icon">🔑</span>
+            <span class="button-text">
+              <span class="button-title">Войти в сделку</span>
+              <span class="button-desc">Подключиться по коду</span>
+            </span>
+          </span>
+        </button>
+
+        <button class="secondary" onclick="send('deals')">
+          <span class="button-row">
+            <span class="button-icon">📋</span>
+            <span class="button-text">
+              <span class="button-title">Мои сделки</span>
+              <span class="button-desc">Посмотреть активные сделки</span>
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div class="security">
+        🔒 Все действия продолжаются через Telegram-бота после выбора пункта.
+      </div>
+    </section>
+
+    <div class="footer">Funpay • Сервис сделок</div>
+  </main>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+
+    function send(action){
+      tg.sendData(JSON.stringify({action}));
+    }
+  </script>
+</body>
+</html>
