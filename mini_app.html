@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Funpay — Сделки</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;padding:18px;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--tg-theme-bg-color,#0f1115);
+      color:var(--tg-theme-text-color,#fff);
+    }
+    .wrap{max-width:560px;margin:0 auto}
+    .hero{
+      padding:20px;border-radius:22px;
+      background:var(--tg-theme-secondary-bg-color,#191c22);
+      box-shadow:0 8px 28px rgba(0,0,0,.18);
+    }
+    h1{font-size:25px;margin:0 0 10px}
+    p{margin:8px 0;line-height:1.45;opacity:.92}
+    .accent{font-weight:700}
+    .grid{display:grid;gap:12px;margin-top:18px}
+    button{
+      width:100%;border:0;border-radius:16px;padding:16px;
+      font-size:17px;font-weight:700;cursor:pointer;
+      color:var(--tg-theme-button-text-color,#fff);
+      background:var(--tg-theme-button-color,#2ea6ff);
+    }
+    button.secondary{
+      background:var(--tg-theme-secondary-bg-color,#242832);
+      color:var(--tg-theme-text-color,#fff);
+      border:1px solid rgba(255,255,255,.08)
+    }
+    .note{font-size:13px;opacity:.65;margin-top:16px;text-align:center}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <h1>👋 Добро пожаловать! 💚</h1>
+    <p>💼 <span class="accent">Funpay — надёжный сервис для безопасных сделок!</span></p>
+    <p>✨ Автоматизировано, быстро и без лишних хлопот!</p>
+    <p>📘 <span class="accent">Комиссия за услугу: всего 1%</span></p>
+    <p>🕐 Поддержка 24/7</p>
+    <p>💌 <span class="accent">Теперь ваши сделки под защитой!</span> 🛡️</p>
+
+    <div class="grid">
+      <button onclick="send('create')">💎 Создать сделку</button>
+      <button onclick="send('join')">🔑 Войти в сделку</button>
+      <button class="secondary" onclick="send('deals')">📋 Мои сделки</button>
+    </div>
+    <div class="note">После выбора действия бот продолжит оформление сделки.</div>
+  </section>
+</div>
+
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.ready();
+  tg.expand();
+
+  function send(action){
+    tg.sendData(JSON.stringify({action}));
+  }
+</script>
+</body>
+</html>
